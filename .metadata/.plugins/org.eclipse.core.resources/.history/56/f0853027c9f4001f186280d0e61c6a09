@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form>
+이름 : <input type="text" id="name" name="name" placeholder="홍길동"></br>
+나이 : <input type="number" id="age" name="age"></br>
+성별 : 남자 <input type="radio" id="man" checked> 
+	  여자 <input type="radio" id="woman"></br>
+관심분야 : 운동 <input type="checkbox" checked> 
+		 게임 <input type="checkbox" checked> 
+		 등산 <input type="checkbox"> 
+		 영화 <input type="checkbox"></br>
+직업 : <select>
+	  	<option value="공무원">공무원</option>
+	  	<option value="공무원">직장인</option>
+	  	<option value="프리랜서">프리랜서</option>
+	  	<option value="학생">학생</option>
+	  </select> </br>
+	  
+<button type="button"> 전송 </button>
+
+
+
+</form>
+
+</body>
+</html>
