@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ScoreResult</title>
 </head>
 <% // 스크립트릿(JSP를 해석하기위한 언어)
 

@@ -1,0 +1,11 @@
+package com.address;
+
+public class address {
+
+	private int num;
+	private String name;
+	private String zipcode;
+	private String addr;
+	private String tel;
+	
+}

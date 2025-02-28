@@ -1,0 +1,16 @@
+package com.exam;
+
+public class ScoreBean {
+
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	
+	// 총점을 구하는 메소드
+	public int getTotal() {
+		return kor+eng+math;
+	}
+	
+	
+}
