@@ -1,7 +1,7 @@
 package com.address;
 
 public class Address {
-
+	//필드
 	private int num;
 	private String name;
 	private String zipcode;

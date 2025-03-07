@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function zipfinder(){
+	window.open("zipCheck.jsp", "", "width=700 height=400")
+	// open(url주소, 새창이름, 새창의 속성들을 입력하면 됨,,,) 입력
+}
+</script>
 </head>
 <body>
 <div align = "right">
@@ -21,8 +27,8 @@
 		</tr>
 		<tr>
 			<td> 우편번호 </td>
-			<td><input type='text' size = 5 name="zipcode" id="zipcode">
-				<button type="button"> 검색 </button></td>
+			<td><input type='text' size = 5 name="zipcode" id="zipcode" readonly="readonly">
+				<button type="button" onclick="zipfinder()"> 검색 </button></td>
 		</tr>		
 		<tr>
 			<td> 주소 </td>
