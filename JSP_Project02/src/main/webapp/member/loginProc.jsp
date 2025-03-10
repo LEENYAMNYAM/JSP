@@ -8,7 +8,7 @@ String userid = request.getParameter("userid");
 String pwd = request.getParameter("pwd");
 MemberDAO dao = MemberDAOImpl.getInstance();
 int flag = dao.loginCheck(userid, pwd);
-if(flag==1){
+if(flag==1||flag==0){
 	session.setAttribute("sUserid", userid);
 }
 

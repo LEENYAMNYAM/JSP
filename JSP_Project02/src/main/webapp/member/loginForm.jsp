@@ -7,10 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" 
-integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
-crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <title>Insert title here</title>
 </head>
@@ -34,7 +31,6 @@ crossorigin="anonymous"></script>
 	    <div class="mt-3">
 	    	<button type="submit" class="btn btn-primary" id="btnLogin">로그인</button>
 	    </div>	
-	  </form>
 
 </div>
 <script>
@@ -57,8 +53,11 @@ $("#btnLogin").click(function(){
 			pwd:$("#pwd").val()
 		},
 		success : function(resp){
-			if(resp==1){
-				alert("로그인성공")
+			if(resp.trim()==0){
+				alert("일반회원 로그인성공")
+				location.href="memberView.jsp";
+			}else if(resp.trim()==1){
+				alert("관리자 로그인성공")
 				$(location).attr("href","memberList.jsp");
 			}else if(resp==-1){
 				alert("회원이 아닙니다. 회원가입하세요")

@@ -60,7 +60,7 @@
 	      <label class="form-check-label" for="radio2">관리자</label>
 	    </div>
 	    <div class="mt-3">
-	    	<button type="submit" class="btn btn-primary">Submit</button>
+	    	<button type="button" class="btn btn-primary" id="btnSend">Submit</button>
 	    </div>	
 	  </form>
 

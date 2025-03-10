@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>ServletProject1</display-name>
+<!-- 
+	일종의 환경설정임
+	이 친구가 왜 필요한지 파악해 보자
+	
+	톰캣서버 안에서 움직이는 어플리케이션 객체인가 봄
+ -->
+
+<!--  get방식 수정부분 -->
+	<!-- formResult -->  
+  <servlet>
+  	<!-- 자바 리소스 안에 패키지 및 FormServlet.java 클래스 만듦 -->
+	<!-- 내가 정하는 이름 -->
+	<servlet-name>formServlet</servlet-name>
+	<servlet-class>com.exam.controller.FormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>formServlet</servlet-name>
+  	<url-pattern>/exam/formResult.go</url-pattern>
+  </servlet-mapping>	
+  <!-- 서블릿맵핑(12번줄)안에 서블릿네임(13번줄)의 값이랑 같은 값을 위의 서블릿(6번줄)에서 같은 서블릿네임(9번줄)을 찾아서 그 바로 밑에 서블릿클래스(10번줄)을 열게 됨.  -->
+  
+<!-- get방식 수정끝 -->
+
+<!--  post방식(person) 수정부분 --> 
+  <servlet>
+	<servlet-name>personServlet</servlet-name>
+	<!-- 1과 같은 이름을 가진 이곳에 있는 url을 실행하라 -->
+	<servlet-class>com.exam.controller.PersonServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  
+  	<servlet-name>personServlet</servlet-name>
+  	<!-- 1. 다음과 같은 url 패턴을 만나면 -->
+  	<url-pattern>/exam/person.go</url-pattern>
+  </servlet-mapping>	
+<!-- post방식 수정끝 -->
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+</web-app>
+
+

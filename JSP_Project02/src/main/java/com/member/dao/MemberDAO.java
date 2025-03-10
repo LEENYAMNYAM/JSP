@@ -10,9 +10,9 @@ public interface MemberDAO {
 	//전체보기
 	public ArrayList<Member> memberList();
 	//수정
-	public void memberUpdat(Member member);
+	public void memberUpdate(Member member);
 	//삭제
-	public void memeberDelete(String userid);
+	public void memberDelete(String userid);
 	//상세보기
 	public Member findById(String userid);
 	//아이디 중복확인
