@@ -156,7 +156,7 @@
     <!--
     <Manager pathname="SESSIONS.ser" />
     -->
-</Context><Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ServletProject1" path="/ServletProject01" reloadable="true" source="org.eclipse.jst.jee.server:ServletProject1"/></Host>
+</Context><Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ServletProject1" path="/ServletProject01" reloadable="true" source="org.eclipse.jst.jee.server:ServletProject1"/><Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HomewProject" path="/HomewProject" reloadable="true" source="org.eclipse.jst.jee.server:HomewProject"/></Host>
     </Engine>
   </Service>
 </Server>

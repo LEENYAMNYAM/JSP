@@ -8,14 +8,14 @@ public class Form {
 	private String job;
 	private String[] hobby;
 	//생성자
-	public Form(String name, int age, String gender, String job, String[] hobby) {
-		super();
-		this.name = name;
-		this.age = age;
-		this.gender = gender;
-		this.job = job;
-		this.hobby = hobby;
-	}
+//	public Form(String name, int age, String gender, String job, String[] hobby) {
+//		super();
+//		this.name = name;
+//		this.age = age;
+//		this.gender = gender;
+//		this.job = job;
+//		this.hobby = hobby;
+//	}
 	
 	//getter, setter
 	public String getName() {

@@ -29,14 +29,14 @@ public class FormServlet extends HttpServlet{
 		String job = req.getParameter("job");
 		String[] hobby = req.getParameterValues("hobby");
 		
-		Form f = new Form(name, age, gender, job, hobby);
-//		
-//		Form f = new Form();
-//		f.setAge(age);
-//		f.setGender(gender);
-//		f.setHobby(hobby);
-//		f.setJob(job);
-//		f.setName(name);
+//		Form f = new Form(name, age, gender, job, hobby);
+		
+		Form f = new Form();
+		f.setAge(age);
+		f.setGender(gender);
+		f.setHobby(hobby);
+		f.setJob(job);
+		f.setName(name);
 		
 		req.setAttribute("form", f);
 		

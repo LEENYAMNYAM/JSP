@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="JSP_HomeProject">
+    <wb-module deploy-name="HomewProject">
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <property name="context-root" value="JSP_HomeProject"/>
-        <property name="java-output-path" value="/JSP_HomeProject/build/classes"/>
+        <property name="context-root" value="HomewProject"/>
+        <property name="java-output-path" value="/HomewProject/build/classes"/>
     </wb-module>
 </project-modules>
