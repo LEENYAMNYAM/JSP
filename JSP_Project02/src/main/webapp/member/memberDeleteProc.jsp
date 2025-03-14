@@ -15,7 +15,6 @@ dao.memberDelete(userid);
 ArrayList<Member> arr = dao.memberList();
 int count = dao.getCount();
 
-//GSON.jar
 Gson gson = new Gson();
 Map<String, Object> hm = new HashMap<>();
 hm.put("jarr", arr);

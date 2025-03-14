@@ -142,8 +142,11 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JSP_Project" path="/JSP_Project" reloadable="true" source="org.eclipse.jst.jee.server:JSP_Project"/>
-      <Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JSP_Project02" path="/JSP_Project02" reloadable="true" source="org.eclipse.jst.jee.server:JSP_Project02">
+      <Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JSP_Project" path="/JSP_Project" reloadable="true" source="org.eclipse.jst.jee.server:JSP_Project"/>
+      <Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JSP_Project02" path="/JSP_Project02" reloadable="true" source="org.eclipse.jst.jee.server:JSP_Project02"/>
+      <Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ServletProject1" path="/ServletProject01" reloadable="true" source="org.eclipse.jst.jee.server:ServletProject1"/>
+      <Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HomewProject" path="/HomewProject" reloadable="true" source="org.eclipse.jst.jee.server:HomewProject"/>
+      <Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ServletProject2" path="" reloadable="true" source="org.eclipse.jst.jee.server:ServletProject2">
 
     <!-- Default set of monitored resources. If one of these changes, the    -->
     <!-- web application will be reloaded.                                   -->
@@ -156,7 +159,8 @@
     <!--
     <Manager pathname="SESSIONS.ser" />
     -->
-</Context><Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ServletProject1" path="/ServletProject01" reloadable="true" source="org.eclipse.jst.jee.server:ServletProject1"/><Context docBase="D:\JMT\JSP\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\HomewProject" path="/HomewProject" reloadable="true" source="org.eclipse.jst.jee.server:HomewProject"/></Host>
+</Context></Host>
+      
     </Engine>
   </Service>
 </Server>
