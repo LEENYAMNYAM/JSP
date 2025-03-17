@@ -12,16 +12,16 @@ import com.board.model.BoardDAOImpl;
 import com.board.model.BoardDTO;
 
 /**
- * Servlet implementation class BoardWriteController
+ * Servlet implementation class BoardViewController
  */
-@WebServlet("/board/write.do")
-public class BoardWriteController extends HttpServlet {
+@WebServlet("/board/view.do")
+public class BoardViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardWriteController() {
+    public BoardViewController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +30,22 @@ public class BoardWriteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("boardWrite.jsp").forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		int num = Integer.parseInt(request.getParameter("num"));
+		BoardDAOImpl dao = new BoardDAOImpl();
+		dao.updateReadCount(num);	//조회수 증가
+		BoardDTO board = dao.findByNum(num);	// 상세보기
+		dao.close();
+		request.setAttribute("board", board);
+		request.getRequestDispatcher("boardView.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		BoardDTO board = new BoardDTO();
-		board.setContent(request.getParameter("content"));
-		board.setEmail(request.getParameter("email"));
-		board.setSubject(request.getParameter("subject"));
-		board.setUserid(request.getParameter("userid"));
-		BoardDAO dao = new BoardDAOImpl();
-		int result = dao.boardInsert(board);
-		dao.close();
-		response.sendRedirect("/board/List.do");
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
