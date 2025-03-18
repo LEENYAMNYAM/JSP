@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.member.model.CommentDTO;
+
 public interface BoardDAO {
 	
 	//p506
@@ -36,4 +38,17 @@ public interface BoardDAO {
 	public void updateReadCount(int num);
 	
 	public void close();
-}
+	
+	////////////////////
+	//추가
+	public void commentInsert(CommentDTO comment);
+	
+	//전체보기
+	public ArrayList<CommentDTO> commentList(int bnum);
+	
+	//개수
+	public int commentCount(int bnum);
+	
+	
+	
+}	

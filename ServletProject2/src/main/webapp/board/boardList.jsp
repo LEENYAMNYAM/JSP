@@ -30,9 +30,10 @@ $(function(){
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${barr}" var="board">
+				<c:forEach items="${barr}" var="board" varStatus="st">
 					<tr>
-						<td>${board.num }</td>
+					<!-- .index는 인덱스니까 0부터 시작하고, .count는 1부터 시작함 -->
+						<td>${rowNo-st.index }</td>
 						<td><a href="view.do?num=${board.num}"> ${board.subject }</a></td> 
 						<td>${board.userid }</td>
 						<td>${board.regdate }</td>
@@ -45,12 +46,12 @@ $(function(){
 			<ul class="pagination">
 				<!-- 이전 버튼이 나와야 하는 if문 -->
 				<c:if test="${p.startPage > p.blockPage}">
-				    <li class="page-item"><a class="page-link" href="List.do?pageNum=${p.startPage - p.blockPage}">Previous</a></li>
+				    <li class="page-item"><a class="page-link" href="List.do?pageNum=${p.startPage - p.blockPage}&searchField=${p.searchField}&searchWord=${p.searchWord}">Previous</a></li>
 				</c:if>
 				<!-- 페이지번호 -->
 				<c:forEach begin="${p.startPage }" end="${p.endPage }" var="i">
 					<c:if test="${p.currentPage!=i}">
-				    	<li class="page-item"><a class="page-link" href="List.do?pageNum=${i}">${i}</a></li>
+				    	<li class="page-item"><a class="page-link" href="List.do?pageNum=${i}&searchField=${p.searchField}&searchWord=${p.searchWord}">${i}</a></li>
 					</c:if>
 					<c:if test="${p.currentPage==i}">
 				    	<li class="page-item active"><a class="page-link" href="#">${i}</a></li>
@@ -58,13 +59,13 @@ $(function(){
 				</c:forEach>  
 				<!-- 이후 버튼이 나와야 하는 if문 -->
 				<c:if test="${p.endPage < p.totPage}">  
-				    <li class="page-item"><a class="page-link" href="List.do?pageNum=${p.endPage+1}">Next</a></li>
+				    <li class="page-item"><a class="page-link" href="List.do?pageNum=${p.endPage+1}&searchField=${p.searchField}&searchWord=${p.searchWord}">Next</a></li>
 				</c:if>  
 			</ul>
-			<form class="d-inline-flex input-group-sm">
+			<form class="d-inline-flex input-group-sm" action="List.do">
 				<select class ="form-select-sm" id="searchField" name="searchField">
 					<option value="subject">제목</option>
-					<option value="sontent">내용</option>
+					<option value="content">내용</option>
 				</select>
 				<input type='text' class="form-control" id="searchWord" name="searchWord">
 				<button type="submit" class="btn btn-primary">Search</button>

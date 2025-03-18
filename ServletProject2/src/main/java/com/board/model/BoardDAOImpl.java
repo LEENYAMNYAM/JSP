@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.comm.DBConnPool;
+import com.member.model.CommentDTO;
 
 public class BoardDAOImpl extends DBConnPool implements BoardDAO{
 	
@@ -30,7 +31,7 @@ public class BoardDAOImpl extends DBConnPool implements BoardDAO{
 		return result;
 	}
 	
-	//글리스트 보기
+	//글 리스트 보기
 	@Override
 	public ArrayList<BoardDTO> boardList(int startRow, int endRow) {
 		ArrayList<BoardDTO> blist = new ArrayList<BoardDTO>();
@@ -163,14 +164,120 @@ public class BoardDAOImpl extends DBConnPool implements BoardDAO{
 	////p506
 	@Override
 	public int selectCount(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return 0;
+		int count = 0;
+		String sql = "select count(*) from boards";
+		if(map.get("searchWord")!=null) {
+			sql += " where " + map.get("searchField") + " like '%" + map.get("searchWord") + "%'";
+		}
+		
+		try {
+			st = con.createStatement();
+			rs = st.executeQuery(sql);
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return count;
 	}
 
 	@Override
 	public List<BoardDTO> selectListPage(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<BoardDTO> blist = new ArrayList<>();
+		String sql = "select * "
+				+ "from (select rownum rNum, tb.* "
+				+ "from (select * from boards";
+		if(map.get("searchWord")!=null) {
+			sql += " where " + map.get("searchField") 
+			 	 + " like '%" + map.get("searchWord") + "%'";
+		}
+		sql += " order by num desc) tb "
+			+ ")"
+			+ " where rNum >=? and rNum <=?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, map.get("start").toString());
+			ps.setString(2, map.get("end").toString());
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				BoardDTO board = new BoardDTO();
+				board.setContent(rs.getString("content"));
+				board.setEmail(rs.getString("email"));
+				board.setNum(rs.getInt("num"));
+				board.setReadcount(rs.getInt("readcount"));
+				board.setRegdate(rs.getString("regdate"));
+				board.setSubject(rs.getString("subject"));
+				board.setUserid(rs.getString("userid"));
+				blist.add(board);
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return blist;
+	}
+
+	/////Comment
+	@Override
+	public void commentInsert(CommentDTO comment) {
+		String sql = "insert into comments(cnum, userid, msg, regdate, bnum) values(comments_seq.nextval,?,?,sysdate,?)";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, comment.getUserid());
+			ps.setString(2, comment.getMsg());
+			ps.setInt(3, comment.getBnum());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public ArrayList<CommentDTO> commentList(int bnum) {
+		ArrayList<CommentDTO> clist = new ArrayList<>();
+		String sql = "select * from comments where bnum="+bnum;
+		
+		try {
+			st= con.createStatement();
+			rs = st.executeQuery(sql);
+			while(rs.next()) {
+				CommentDTO com = new CommentDTO();
+				com.setBnum(rs.getInt("bnum"));
+				com.setCnum(rs.getInt("cnum"));
+				com.setMsg(rs.getString("msg"));
+				com.setRegdate(rs.getString("regdate"));
+				com.setUserid(rs.getString("userid"));
+				clist.add(com);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return clist;
+	}
+
+	@Override
+	public int commentCount(int bnum) {
+		int count =0;
+		String sql = "select count(*) from comments where bnum="+bnum;
+				
+				try {
+					st = con.createStatement();
+					rs = st.executeQuery(sql);
+					if(rs.next()) {
+						count = rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		return count;
 	}
 
 }
