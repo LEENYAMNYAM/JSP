@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 경로를 namespace로 주로 씀 -->
+<mapper namespace="com.address.config.BoardMapper">
+
+<!-- 리스트보기 -->
+<select id="boarListData" resultType = "com.board.model.BoardDTO">
+select * from boards order by num desc
+</select>
+
+<!-- 갯수 -->
+<select id="boardCountData" resultType = "int">
+select count(*) from boards
+</select>
+
+<!--  -->
+
+
+
+</mapper>
+  

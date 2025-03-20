@@ -146,7 +146,7 @@
       <Context docBase="JSP_Project02" path="/JSP_Project02" reloadable="true" source="org.eclipse.jst.jee.server:JSP_Project02"/>
       <Context docBase="ServletProject1" path="/ServletProject01" reloadable="true" source="org.eclipse.jst.jee.server:ServletProject1"/>
       <Context docBase="HomewProject" path="/HomewProject" reloadable="true" source="org.eclipse.jst.jee.server:HomewProject"/>
-      <Context docBase="ServletProject2" path="/" reloadable="true" source="org.eclipse.jst.jee.server:ServletProject2"/></Host>
+      <Context docBase="ServletProject2" path="/" reloadable="true" source="org.eclipse.jst.jee.server:ServletProject2"/><Context docBase="MybatisProject1" path="/MybatisProject1" reloadable="true" source="org.eclipse.jst.jee.server:MybatisProject1"/></Host>
       
     </Engine>
   </Service>

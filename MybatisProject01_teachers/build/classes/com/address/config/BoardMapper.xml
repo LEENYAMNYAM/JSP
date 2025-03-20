@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.address.config.BoardMapper">
+   <insert id="insertData"  parameterType="com.board.model.BoardDTO">
+  insert into boards(num, userid, subject, email, content) 
+  values(boards_seq.nextval, #{userid}, #{subject}, #{email}, #{content})
+  </insert>
+  
+  <select id="listData" resultType="com.board.model.BoardDTO">
+  select * from boards order by num desc
+  </select>
+  
+  <select id="countData" resultType="Integer">
+  select count(*) from boards
+  </select>
+  
+  
+  <select id="viewData" parameterType="Integer" 
+  resultType="com.board.model.BoardDTO">
+  select * from boards where num=#{num}
+  </select>
+  
+  <!--  삭제 -->
+  <delete id="deleteData" parameterType="Integer">
+  delete from boards where num=#{num}
+    </delete>
+    
+    <!-- 수정 -->
+    <update id="updateData">
+    update boards set subject=#{subject}, content=#{content} where num=#{num}
+    </update>
+  
+  
+  
+  
+  
+  </mapper>

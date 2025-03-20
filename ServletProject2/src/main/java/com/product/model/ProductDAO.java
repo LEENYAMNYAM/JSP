@@ -42,6 +42,7 @@ public class ProductDAO extends DBConnPool{
 				p.setPnum(rs.getInt("pnum"));
 				p.setSfile(rs.getString("sfile"));
 				p.setUnitPrice(rs.getInt("unitPrice"));
+				plist.add(p);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
