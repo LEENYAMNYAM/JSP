@@ -18,7 +18,7 @@
 	</script>
 	<div class="container mt-5">
 		<H2> Board Write </H2>
-		<form action="boardwrite.my" method="post" id="frm">  
+		<form action="boardwrite.my" method="post" id="frm" onsubmit="return validateForm(this)">  
 		<!-- submit으로 버튼을 만들었을땐 유효성검사 하려면 onsubmit="" 써줘야함. 이때 this는 form 객체를 의미함 -->
 		    <div class="mb-3 mt-3">
 		      <label for="userid">UserID:</label>
@@ -34,10 +34,12 @@
 		      <label for="email">Email:</label>
 		      <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
 		    </div>
+		    
 		    <div class="mb-3">
 		      <label for="content">Content:</label>
 			  <textarea class="form-control" id="content" name="content" placeholder="Content goes here" rows=5></textarea>
-			</div>	    
+			</div>	  
+			  
 		    <div class="mt-3">
 		    	<button type="submit" class="btn btn-primary">글쓰기</button>
 		    </div>	

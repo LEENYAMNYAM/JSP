@@ -30,7 +30,6 @@
 		<button type="button" class="btn btn-primary"
 		 onclick="location.href='update.my?num=${board.num}'">수정</button>
 		<button type="button" class="btn btn-secondary" onclick="location.href='delete.my?num=${board.num}'">삭제</button>
-
 </div>
 
 </body>
